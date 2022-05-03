@@ -21,3 +21,11 @@ select distinct programmatore.codice, programma.anno
 from autore join programmatore on autore.codice = programmatore.codice
     join programma on programma.id = autore.id
 where programma.linguaggio != "Java" and programmatore.categoria = 10 /* linguaggio diverso da java programmatore di categoria 10 */
+
+/* 4. */
+
+select distinct autore1.codice as programmatore1, autore2.codice as programmatore2 /* abbiamo bisogno di 2 persone */
+from programma join Autore autore1 on programma.id = autore1.id
+    join autore autore2 on programma.id = autore2.id
+/* per togliere i doppioni */
+where programma.linguaggio = "Python" and autore1.codice != autore2.codice and autore1.codice > autore2.codice
