@@ -36,3 +36,10 @@ select distinct programmatore.codice, programmatore.nome
 from autore join programmatore on autore.codice = programmatore.codice
     join programma on programma.id = autore.id 
 where programma.linguaggio = "Java"
+
+/* 6. */
+
+select programmatore.codice, programma.anno, count(programma.id)
+from autore join programmatore on autore.codice = programmatore.codice
+    join programma on programma.id = autore.id 
+group by autore.codice, programma.anno
