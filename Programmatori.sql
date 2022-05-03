@@ -29,3 +29,10 @@ from programma join Autore autore1 on programma.id = autore1.id
     join autore autore2 on programma.id = autore2.id
 /* per togliere i doppioni */
 where programma.linguaggio = "Python" and autore1.codice != autore2.codice and autore1.codice > autore2.codice
+
+/* 5. */
+
+select distinct programmatore.codice, programmatore.nome
+from autore join programmatore on autore.codice = programmatore.codice
+    join programma on programma.id = autore.id 
+where programma.linguaggio = "Java"
